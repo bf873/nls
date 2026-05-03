@@ -13,7 +13,8 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            color: #1a1a1a;
+            color: #b0b0b0;
+            background: #0f0f0f;
             overflow-x: hidden;
         }
 
@@ -28,13 +29,14 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 50px;
-            background: rgba(10, 10, 10, 0.95);
+            background: rgba(15, 15, 15, 0.97);
             backdrop-filter: blur(10px);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            border-bottom: 1px solid rgba(255, 107, 53, 0.15);
         }
 
         header h1 {
@@ -42,28 +44,41 @@
             font-weight: 800;
             color: #fff;
             letter-spacing: -0.5px;
-            background: linear-gradient(135deg, #fff, #d4af37);
+            background: linear-gradient(135deg, #fff, #ff6b35);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            flex-shrink: 0;
         }
 
-        header a {
-            color: #fff;
+        .header-nav {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .header-nav a {
+            color: #b0b0b0;
             text-decoration: none;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 700;
-            padding: 10px 20px;
-            border: 2px solid #d4af37;
+            padding: 10px 22px;
+            border: 2px solid rgba(176, 176, 176, 0.25);
             border-radius: 50px;
             transition: all 0.3s ease;
             cursor: pointer;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            white-space: nowrap;
         }
 
-        header a:hover {
-            background: #d4af37;
-            color: #000;
-            transform: scale(1.05);
+        .header-nav a:hover {
+            border-color: #ff6b35;
+            color: #ff6b35;
+            background: rgba(255, 107, 53, 0.08);
+            transform: scale(1.04);
+            box-shadow: 0 0 20px rgba(255, 107, 53, 0.15);
         }
 
         /* Hero Section */
@@ -85,14 +100,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, #1a1a2e, #16213e, #0f3460);
-            animation: gradientShift 8s ease infinite;
+            background: linear-gradient(160deg, #0f0f0f 0%, #1a1a1a 40%, #0f0f0f 70%, #1c1410 100%);
             z-index: -1;
-        }
-
-        @keyframes gradientShift {
-            0%, 100% { filter: hue-rotate(0deg); }
-            50% { filter: hue-rotate(10deg); }
         }
 
         .hero::after {
@@ -102,15 +111,24 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(ellipse at 20% 50%, rgba(212, 175, 55, 0.15) 0%, transparent 50%),
-                        radial-gradient(ellipse at 80% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
-            animation: floatGlow 6s ease-in-out infinite;
+            background: radial-gradient(ellipse at 20% 50%, rgba(255, 107, 53, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at 75% 30%, rgba(255, 107, 53, 0.07) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 80%, rgba(255, 107, 53, 0.05) 0%, transparent 40%);
+            animation: floatGlow 7s ease-in-out infinite;
             z-index: -1;
         }
 
         @keyframes floatGlow {
-            0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(20px, -20px); }
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+            33% {
+                transform: translate(25px, -15px);
+            }
+            66% {
+                transform: translate(-15px, 10px);
+            }
         }
 
         .hero-content {
@@ -138,38 +156,40 @@
             margin-bottom: 20px;
             letter-spacing: -1px;
             line-height: 1.1;
-            text-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            text-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
         }
 
         .hero .subtitle {
             font-size: 24px;
             font-weight: 300;
             margin-bottom: 40px;
-            color: #d4af37;
-            text-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            color: #ff6b35;
+            text-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
             letter-spacing: 2px;
         }
 
         .hero-cta {
             display: inline-block;
             padding: 18px 50px;
-            background: linear-gradient(135deg, #d4af37, #e5c158);
-            color: #000;
+            background: #ff6b35;
+            color: #fff;
             text-decoration: none;
             font-size: 16px;
             font-weight: 800;
             border-radius: 50px;
             transition: all 0.3s ease;
             cursor: pointer;
-            border: 2px solid #d4af37;
-            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.3);
+            border: 2px solid #ff6b35;
+            box-shadow: 0 10px 40px rgba(255, 107, 53, 0.3);
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
         .hero-cta:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 60px rgba(212, 175, 55, 0.5);
+            box-shadow: 0 20px 60px rgba(255, 107, 53, 0.5);
+            background: transparent;
+            color: #ff6b35;
         }
 
         .scroll-indicator {
@@ -178,46 +198,167 @@
             left: 50%;
             transform: translateX(-50%);
             animation: bounce 2s infinite;
+            color: #ff6b35;
+            font-size: 20px;
+            opacity: 0.8;
         }
 
         @keyframes bounce {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(-10px); }
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            50% {
+                transform: translateX(-50%) translateY(-10px);
+            }
         }
 
-        /* Trust Badges Section */
-        .trust-badges {
-            background: #0a0a0a;
-            padding: 40px;
+        /* Horizontal Ticker Section */
+        .ticker-section {
+            background: #0f0f0f;
+            padding: 28px 0;
+            border-top: 1px solid rgba(255, 107, 53, 0.3);
+            border-bottom: 1px solid rgba(255, 107, 53, 0.3);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .ticker-section::before,
+        .ticker-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 80px;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .ticker-section::before {
+            left: 0;
+            background: linear-gradient(to right, #0f0f0f 0%, transparent 100%);
+        }
+
+        .ticker-section::after {
+            right: 0;
+            background: linear-gradient(to left, #0f0f0f 0%, transparent 100%);
+        }
+
+        .ticker-track {
             display: flex;
-            justify-content: center;
             gap: 50px;
-            flex-wrap: wrap;
-            text-align: center;
+            animation: tickerScroll 30s linear infinite;
+            width: fit-content;
+            white-space: nowrap;
+            padding: 0 30px;
         }
 
-        .badge {
+        .ticker-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes tickerScroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .ticker-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #b0b0b0;
+        }
+
+        .ticker-item .ticker-accent {
+            color: #ff6b35;
+            font-size: 20px;
+        }
+
+        .ticker-item .ticker-stat {
+            color: #fff;
+            font-size: 18px;
+            font-weight: 800;
+        }
+
+        .ticker-divider {
+            color: #ff6b35;
+            font-size: 10px;
+            flex-shrink: 0;
+            opacity: 0.6;
+        }
+
+        /* Bio Section */
+        .bio-section {
+            padding: 100px 50px;
+            background: #0f0f0f;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .bio-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #ff6b35, #1a1410, #0f0f0f);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 100px;
+            color: rgba(255, 255, 255, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bio-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 107, 53, 0.2);
+            pointer-events: none;
+        }
+
+        .bio-content h3 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 30px;
             color: #fff;
         }
 
-        .badge-number {
-            font-size: 36px;
-            font-weight: 800;
-            color: #d4af37;
+        .bio-content p {
+            font-size: 16px;
+            color: #b0b0b0;
+            line-height: 1.8;
+            margin-bottom: 20px;
         }
 
-        .badge-text {
-            font-size: 13px;
+        .bio-highlight {
+            background: #1a1a1a;
+            padding: 20px;
+            border-left: 4px solid #ff6b35;
+            margin: 30px 0;
+            font-style: italic;
             color: #999;
-            margin-top: 8px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            border-radius: 0 6px 6px 0;
         }
 
-        /* NEW: Image Carousel Section */
+        /* Carousel Section */
         .carousel-section {
             padding: 100px 50px;
-            background: #fff;
+            background: #0f0f0f;
             text-align: center;
         }
 
@@ -225,7 +366,7 @@
             font-size: 48px;
             font-weight: 800;
             margin-bottom: 60px;
-            color: #1a1a1a;
+            color: #fff;
         }
 
         .carousel-container {
@@ -236,7 +377,8 @@
             margin: 0 auto;
             overflow: hidden;
             border-radius: 15px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 107, 53, 0.12);
         }
 
         .carousel-track {
@@ -263,7 +405,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.1), rgba(212, 175, 55, 0.1));
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.2), rgba(255, 107, 53, 0.08));
             pointer-events: none;
         }
 
@@ -282,21 +424,21 @@
             width: 12px;
             height: 12px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.35);
             cursor: pointer;
             transition: all 0.3s ease;
             border: 2px solid transparent;
         }
 
         .carousel-dot.active {
-            background: #d4af37;
-            border-color: #d4af37;
+            background: #ff6b35;
+            border-color: #ff6b35;
             width: 30px;
             border-radius: 6px;
         }
 
         .carousel-dot:hover {
-            background: #d4af37;
+            background: #ff6b35;
         }
 
         /* Carousel Arrows */
@@ -306,9 +448,9 @@
             transform: translateY(-50%);
             width: 50px;
             height: 50px;
-            background: rgba(0, 0, 0, 0.6);
-            color: #d4af37;
-            border: none;
+            background: rgba(15, 15, 15, 0.75);
+            color: #ff6b35;
+            border: 1px solid rgba(255, 107, 53, 0.4);
             border-radius: 50%;
             font-size: 24px;
             cursor: pointer;
@@ -320,9 +462,11 @@
         }
 
         .carousel-arrow:hover {
-            background: #d4af37;
-            color: #000;
+            background: #ff6b35;
+            color: #fff;
             transform: translateY(-50%) scale(1.1);
+            border-color: #ff6b35;
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.35);
         }
 
         .carousel-arrow.prev {
@@ -333,59 +477,13 @@
             right: 20px;
         }
 
-        /* Bio Section */
-        .bio-section {
-            padding: 100px 50px;
-            background: #fff;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .bio-image {
-            width: 100%;
-            height: 400px;
-            background: linear-gradient(135deg, #d4af37, #16213e);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 100px;
-            color: rgba(255, 255, 255, 0.3);
-        }
-
-        .bio-content h3 {
-            font-size: 42px;
-            font-weight: 800;
-            margin-bottom: 30px;
-            color: #1a1a1a;
-        }
-
-        .bio-content p {
-            font-size: 16px;
-            color: #555;
-            line-height: 1.8;
-            margin-bottom: 20px;
-        }
-
-        .bio-highlight {
-            background: #f0f0f0;
-            padding: 20px;
-            border-left: 4px solid #d4af37;
-            margin: 30px 0;
-            font-style: italic;
-            color: #666;
-        }
-
-        /* Instagram CTA - Premium */
+        /* Instagram CTA */
         .instagram-section {
             position: relative;
             padding: 150px 50px;
             text-align: center;
             overflow: hidden;
+            background: #0f0f0f;
         }
 
         .instagram-section::before {
@@ -395,25 +493,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #d4af37, #e5c158, #f0d968);
-            animation: gradientFlow 8s ease infinite;
-            z-index: -1;
-        }
-
-        @keyframes gradientFlow {
-            0%, 100% { filter: hue-rotate(0deg); }
-            50% { filter: hue-rotate(10deg); }
-        }
-
-        .instagram-section::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
-            z-index: -1;
+            background: radial-gradient(ellipse at 50% 40%, rgba(255, 107, 53, 0.10) 0%, transparent 60%),
+                radial-gradient(ellipse at 30% 70%, rgba(255, 107, 53, 0.05) 0%, transparent 50%);
+            z-index: 0;
         }
 
         .instagram-content {
@@ -427,70 +509,77 @@
             font-size: 54px;
             font-weight: 800;
             margin-bottom: 20px;
-            color: #000;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            color: #fff;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
 
         .urgency-badge {
             display: inline-block;
-            background: #000;
-            color: #d4af37;
-            padding: 10px 20px;
+            background: transparent;
+            color: #ff6b35;
+            padding: 10px 22px;
             border-radius: 50px;
             font-size: 12px;
             font-weight: 800;
             margin-bottom: 20px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
+            border: 2px solid #ff6b35;
             animation: pulse 2s ease-in-out infinite;
         }
 
         @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+            0%,
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.3);
+            }
+            50% {
+                transform: scale(1.04);
+                box-shadow: 0 0 0 15px rgba(255, 107, 53, 0);
+            }
         }
 
         .instagram-content p {
             font-size: 18px;
-            color: #000;
+            color: #b0b0b0;
             margin-bottom: 40px;
             line-height: 1.8;
-            font-weight: 500;
+            font-weight: 400;
         }
 
         .instagram-button {
             display: inline-block;
             padding: 20px 60px;
-            background: #000;
-            color: #d4af37;
+            background: #ff6b35;
+            color: #fff;
             text-decoration: none;
             font-size: 17px;
             font-weight: 800;
             border-radius: 50px;
             transition: all 0.3s ease;
             cursor: pointer;
-            border: 3px solid #000;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            border: 3px solid #ff6b35;
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.25);
             text-transform: uppercase;
             letter-spacing: 1.5px;
         }
 
         .instagram-button:hover {
             background: transparent;
-            color: #000;
+            color: #ff6b35;
             transform: translateY(-5px);
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 25px 60px rgba(255, 107, 53, 0.35);
         }
 
         /* Footer */
         footer {
             background: #0a0a0a;
-            color: #fff;
+            color: #b0b0b0;
             text-align: center;
             padding: 40px;
             font-size: 13px;
-            color: #999;
-            border-top: 1px solid #d4af37;
+            border-top: 1px solid rgba(255, 107, 53, 0.25);
         }
 
         /* Mobile */
@@ -498,22 +587,30 @@
             header {
                 padding: 15px 20px;
                 flex-direction: column;
-                gap: 15px;
+                gap: 14px;
             }
 
             header h1 {
                 font-size: 20px;
             }
 
-            header a {
-                font-size: 12px;
-                padding: 8px 16px;
+            .header-nav {
+                gap: 6px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .header-nav a {
+                font-size: 11px;
+                padding: 8px 14px;
+                border-width: 1.5px;
             }
 
             .hero {
-                margin-top: 120px;
+                margin-top: 130px;
                 height: auto;
                 padding: 60px 20px;
+                min-height: 85vh;
             }
 
             .hero h2 {
@@ -522,11 +619,42 @@
 
             .hero .subtitle {
                 font-size: 16px;
+                letter-spacing: 1px;
             }
 
-            .trust-badges {
+            .hero-cta {
+                padding: 16px 40px;
+                font-size: 14px;
+            }
+
+            .ticker-section {
+                padding: 20px 0;
+            }
+
+            .ticker-track {
                 gap: 30px;
-                padding: 30px 20px;
+            }
+            .ticker-item {
+                font-size: 11px;
+                letter-spacing: 1px;
+            }
+            .ticker-item .ticker-stat {
+                font-size: 14px;
+            }
+
+            .bio-section {
+                grid-template-columns: 1fr;
+                padding: 60px 20px;
+                gap: 40px;
+            }
+
+            .bio-image {
+                height: 280px;
+                font-size: 60px;
+            }
+
+            .bio-content h3 {
+                font-size: 28px;
             }
 
             .carousel-section {
@@ -538,7 +666,7 @@
             }
 
             .carousel-container {
-                height: 400px;
+                height: 350px;
             }
 
             .carousel-arrow {
@@ -548,21 +676,11 @@
             }
 
             .carousel-arrow.prev {
-                left: 10px;
+                left: 8px;
             }
 
             .carousel-arrow.next {
-                right: 10px;
-            }
-
-            .bio-section {
-                grid-template-columns: 1fr;
-                padding: 60px 20px;
-                gap: 40px;
-            }
-
-            .bio-content h3 {
-                font-size: 28px;
+                right: 8px;
             }
 
             .instagram-section {
@@ -570,16 +688,35 @@
             }
 
             .instagram-content h3 {
-                font-size: 36px;
+                font-size: 34px;
             }
 
             .instagram-content p {
-                font-size: 16px;
+                font-size: 15px;
             }
 
             .instagram-button {
                 padding: 16px 40px;
                 font-size: 14px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .header-nav a {
+                font-size: 10px;
+                padding: 7px 10px;
+            }
+            .hero h2 {
+                font-size: 32px;
+            }
+            .hero .subtitle {
+                font-size: 13px;
+            }
+            .carousel-container {
+                height: 250px;
+            }
+            .instagram-content h3 {
+                font-size: 26px;
             }
         }
     </style>
@@ -588,7 +725,11 @@
     <!-- Header -->
     <header>
         <h1>🎸 NLS Media</h1>
-        <a href="tel:+1(555)123-4567">CALL: (555) 123-4567</a>
+        <nav class="header-nav">
+            <a href="#about">About</a>
+            <a href="#work">Work</a>
+            <a href="#instagram">Contact</a>
+        </nav>
     </header>
 
     <!-- Hero Section -->
@@ -596,33 +737,61 @@
         <div class="hero-content">
             <h2>THE ENERGY.<br>THE PASSION.<br>THE MOMENT.</h2>
             <div class="subtitle">PREMIUM CONCERT PHOTOGRAPHY</div>
-            <a href="#instagram" class="hero-cta">SEE THE WORK</a>
+            <a href="#work" class="hero-cta">SEE THE WORK</a>
         </div>
         <div class="scroll-indicator">↓</div>
     </section>
 
-    <!-- Trust Badges -->
-    <section class="trust-badges">
-        <div class="badge">
-            <div class="badge-number">12+</div>
-            <div class="badge-text">Years Experience</div>
-        </div>
-        <div class="badge">
-            <div class="badge-number">500+</div>
-            <div class="badge-text">Events Covered</div>
-        </div>
-        <div class="badge">
-            <div class="badge-number">15</div>
-            <div class="badge-text">Industry Awards</div>
-        </div>
-        <div class="badge">
-            <div class="badge-number">98%</div>
-            <div class="badge-text">Client Satisfaction</div>
+    <!-- Horizontal Scrolling Ticker -->
+    <section class="ticker-section">
+        <div class="ticker-track" id="tickerTrack">
+            <!-- First set -->
+            <span class="ticker-item"><span class="ticker-accent">◆</span> <span class="ticker-stat">12+</span> Years Experience</span>
+            <span class="ticker-divider">●</span>
+            <span class="ticker-item"><span class="ticker-accent">◆</span> <span class="ticker-stat">500+</span> Events Covered</span>
+            <span class="ticker-divider">●</span>
+            <span class="ticker-item"><span class="ticker-accent">◆</span> <span class="ticker-stat">15</span> Industry Awards</span>
+            <span class="ticker-divider">●</span>
+            <span class="ticker-item"><span class="ticker-accent">◆</span> <span class="ticker-stat">98%</span> Client Satisfaction</span>
+            <span class="ticker-divider">●</span>
+            <span class="ticker-item"><span class="ticker-accent">◆</span> Premium Concert Photography</span>
+            <span class="ticker-divider">●</span>
+            <span class="ticker-item"><span class="ticker-accent">◆</span> Live Event Specialist</span>
+            <span class="ticker-divider">●</span>
+            <!-- Duplicate set for seamless loop -->
+            <span class="ticker-item"><span class="ticker-accent">◆</span> <span class="ticker-stat">12+</span> Years Experience</span>
+            <span class="ticker-divider">●</span>
+            <span class="ticker-item"><span class="ticker-accent">◆</span> <span class="ticker-stat">500+</span> Events Covered</span>
+            <span class="ticker-divider">●</span>
+            <span class="ticker-item"><span class="ticker-accent">◆</span> <span class="ticker-stat">15</span> Industry Awards</span>
+            <span class="ticker-divider">●</span>
+            <span class="ticker-item"><span class="ticker-accent">◆</span> <span class="ticker-stat">98%</span> Client Satisfaction</span>
+            <span class="ticker-divider">●</span>
+            <span class="ticker-item"><span class="ticker-accent">◆</span> Premium Concert Photography</span>
+            <span class="ticker-divider">●</span>
+            <span class="ticker-item"><span class="ticker-accent">◆</span> Live Event Specialist</span>
+            <span class="ticker-divider">●</span>
         </div>
     </section>
 
-    <!-- NEW: Image Carousel Section -->
-    <section class="carousel-section">
+    <!-- Bio Section -->
+    <section class="bio-section" id="about">
+        <div class="bio-image">📷</div>
+        <div class="bio-content">
+            <h3>BEYOND THE PIT.</h3>
+            <p>I don't just photograph concerts. I live them. With roots in the music scene and a camera in my hands since 2012, I've spent thousands of hours capturing the moments that define live performance.</p>
+            <div class="bio-highlight">
+                "Every shot is a conversation between me, the artist, and the audience. It's about freezing the moment where the energy becomes tangible."
+            </div>
+            <p>I don't just take photos; I document the culture. With a background in rock and metal and years of navigating the chaos of backstage, I provide a perspective that most miss. I am a fly on the wall for the intimate moments and a front-row witness to the explosion of the stage.</p>
+            <p>My mission is simple: to make your fans feel exactly what it was like to be there, and to make those who weren't there regret it.</p>
+            <p>From festival crowds to intimate venues, from international acts to rising stars, I've learned that the best concert photos aren't just technically perfect—they're emotionally true. They make you feel what it was like to be there.</p>
+            <p>My work has been featured in music publications, used by major venues for promotional campaigns, and trusted by artists worldwide. But what matters most? When someone sees their photo and says, "Yes. That's exactly how it felt."</p>
+        </div>
+    </section>
+
+    <!-- Image Carousel Section -->
+    <section class="carousel-section" id="work">
         <h3>Our Work Speaks</h3>
         <div class="carousel-container">
             <div class="carousel-track" id="carouselTrack">
@@ -637,29 +806,13 @@
                 <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1483389127117-b6a2102724ae?w=1000&h=600&fit=crop');"></div>
                 <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1498514066265-3f4a4a2f8166?w=1000&h=600&fit=crop');"></div>
             </div>
-            
+
             <!-- Carousel Controls -->
             <div class="carousel-controls" id="carouselDots"></div>
-            
+
             <!-- Carousel Arrows -->
             <button class="carousel-arrow prev" id="prevBtn">‹</button>
             <button class="carousel-arrow next" id="nextBtn">›</button>
-        </div>
-    </section>
-
-    <!-- Bio Section -->
-    <section class="bio-section">
-        <div class="bio-image">📷</div>
-        <div class="bio-content">
-            <h3>BEYOND THE PIT.</h3>
-            <p>I don't just photograph concerts. I live them. With roots in the music scene and a camera in my hands since 2012, I've spent thousands of hours capturing the moments that define live performance.</p>
-            <div class="bio-highlight">
-                "Every shot is a conversation between me, the artist, and the audience. It's about freezing the moment where the energy becomes tangible."
-            </div>
-            <p>I don’t just take photos; I document the culture. With a background in [MUSIC GENRE] and years of navigating the chaos of backstage, I provide a perspective that most miss. I am a fly on the wall for the intimate moments and a front-row witness to the explosion of the stage.</p>
-            <p>My mission is simple: to make your fans feel exactly what it was like to be there, and to make those who weren't there regret it.</p>
-            <p>From festival crowds to intimate venues, from international acts to rising stars, I've learned that the best concert photos aren't just technically perfect—they're emotionally true. They make you feel what it was like to be there.</p>
-            <p>My work has been featured in music publications, used by major venues for promotional campaigns, and trusted by artists worldwide. But what matters most? When someone sees their photo and says, "Yes. That's exactly how it felt."</p>
         </div>
     </section>
 
@@ -683,10 +836,11 @@
         const carouselDots = document.getElementById('carouselDots');
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
-        
+
         const slides = carouselTrack.querySelectorAll('.carousel-slide');
         const totalSlides = slides.length;
         let currentIndex = 0;
+        let autoLoopInterval;
 
         // Create dots
         for (let i = 0; i < totalSlides; i++) {
@@ -718,17 +872,30 @@
         function goToSlide(index) {
             currentIndex = index;
             updateCarousel();
+            resetAutoLoop();
         }
 
-        prevBtn.addEventListener('click', prevSlide);
-        nextBtn.addEventListener('click', nextSlide);
+        function resetAutoLoop() {
+            clearInterval(autoLoopInterval);
+            autoLoopInterval = setInterval(nextSlide, 5000);
+        }
 
-        // Auto-loop carousel
-        setInterval(nextSlide, 5000); // Change slide every 5 seconds
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            resetAutoLoop();
+        });
 
-        // Smooth scroll for CTA buttons
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            resetAutoLoop();
+        });
+
+        // Start auto-loop
+        autoLoopInterval = setInterval(nextSlide, 5000);
+
+        // Smooth scroll for all anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
